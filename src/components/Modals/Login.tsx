@@ -5,6 +5,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import { Authenticator, Button, Image } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -34,14 +36,14 @@ const styles = StyleSheet.create({
     boxShadow: `0 0 10px ${colors.dark}`,
     marginTop: '5rem',
     padding: '2rem',
-    maxHeight: 'calc(390px + 4rem)',
+    maxHeight: 'calc(400px + 4rem)',
   },
   banner: {
     marginBottom: '2rem',
   },
   closeButton: {
     width: '8rem',
-    margin: '2rem',
+    marginTop: '2rem',
     alignSelf: 'flex-end',
   }
 });
@@ -62,8 +64,8 @@ const LoginModal: FC<LoginProps> = ({ showLogin, setShowLogin }) => {
       transparent
       style={styles.modal}
     >
-      <TouchableOpacity onPressOut={() => setShowLogin(false)}>
-        <ScrollView style={[styles.login, isDesktop && styles.desktopLogin]}>
+      <View style={[styles.login, isDesktop && styles.desktopLogin]}>
+        <ScrollView>
           {!isDesktop && (
             <Image
               alt="High Score Games logo"
@@ -90,7 +92,7 @@ const LoginModal: FC<LoginProps> = ({ showLogin, setShowLogin }) => {
             Close
           </Button>
         </ScrollView>
-      </TouchableOpacity>
+      </View>
     </Modal>
   );
 };

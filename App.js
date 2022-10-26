@@ -1,18 +1,27 @@
-import { Amplify } from 'aws-amplify';
-import { Authenticator } from '@aws-amplify/ui-react';
+import { NavigationContainer } from '@react-navigation/native';
+
 import '@aws-amplify/ui-react/styles.css';
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import AppHeader from './src/views/AppHeader';
+import Dashboard from './src/views/Dashboard';
+import { createNavigator } from './src/components/Navigator';
+
+const HighScoreGames = createNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <AppHeader />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <AppHeader />
+        <HighScoreGames.Navigator>
+          <HighScoreGames.Screen component={Dashboard} name="Dashboard" />
+        </HighScoreGames.Navigator>
+      </View>
+    </NavigationContainer>
   );
 }
 

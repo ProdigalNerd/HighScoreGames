@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     height: '15vh',
     maxHeight: '150px',
     width: '100%',
+    zIndex: 10000,
   },
 });
 

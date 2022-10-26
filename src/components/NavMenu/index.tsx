@@ -11,7 +11,7 @@ import {
   Divider,
 } from '@aws-amplify/ui-react';
 import { View, StyleSheet } from 'react-native';
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import colors from '../../const/colors';
 
 const styles = StyleSheet.create({
@@ -44,9 +44,14 @@ const NavMenu: FC<NavMenuProps> = ({ setShowLogin }) => {
           <MenuButton
             size="large"
             style={styles.triggerButton}
-            onClick={() => setShowMenu(true)}
+            onClick={() => setShowMenu(!showMenu)}
           >
-            <FiMenu />
+            {!showMenu && (
+              <FiMenu />
+            )}
+            {showMenu && (
+              <FiX />
+            )}
           </MenuButton>
         }
       >
