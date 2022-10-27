@@ -8,6 +8,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import AppHeader from './src/views/AppHeader';
 import Dashboard from './src/views/Dashboard';
 import { createNavigator } from './src/components/Navigator';
+import SelectGame from './src/views/SelectGame';
 
 const HighScoreGames = createNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <AppHeader />
         <HighScoreGames.Navigator>
           <HighScoreGames.Screen component={Dashboard} name="Dashboard" />
+          <HighScoreGames.Screen component={SelectGame} name="SelectGame" />
         </HighScoreGames.Navigator>
       </View>
     </NavigationContainer>

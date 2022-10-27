@@ -19,19 +19,26 @@ const styles = StyleSheet.create({
     display: 'flex',
     fontSize: '1.25rem',
   },
+  widgets: {
+    marginTop: '1rem',
+  }
 });
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Button variation="primary">
+      <Button
+        variation="primary"
+        onClick={() => navigation.navigate('SelectGame')}
+      >
         <Gi3DMeeple style={styles.icon} /> Start New Game
       </Button>
       <Flex
-        direction="row"
+        direction="column"
+        style={styles.widgets}
       >
-        <RecentGamesWidget />
         <HighScoresWidget />
+        <RecentGamesWidget />
       </Flex>
     </View>
   );
