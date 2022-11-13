@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Gi3DMeeple } from "react-icons/gi";
 import HighScoresWidget from "../components/Widgets/HighScores";
 import RecentGamesWidget from "../components/Widgets/RecentGames";
+import { FC } from "react";
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Dashboard = ({ navigation }) => {
+const Dashboard: FC = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Button

@@ -13,6 +13,7 @@
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@expo/webpack-config": "^0.17.0",
+    "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
     "aws-amplify": "^4.3.39",
@@ -22,6 +23,7 @@
     "react-dom": "^18.0.0",
     "react-icons": "^4.6.0",
     "react-native": "^0.70.3",
+    "react-native-extended-stylesheet": "^0.12.0",
     "react-native-web": "^0.18.9"
   },
   "devDependencies": {

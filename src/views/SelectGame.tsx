@@ -1,9 +1,17 @@
+import { FC } from "react";
 import { Text, View } from "react-native";
+import GamesList from "../components/Games/List";
 
-const SelectGame = () => {
+const SelectGame: FC = ({ navigation }) => {
+  const selectGame = () => {
+    navigation.push('ConfigureGame');
+  };
+
   return (
     <View>
-      <Text>Select Game!</Text>
+      <GamesList
+        onSelectGame={selectGame}
+      />
     </View>
   )
 };
