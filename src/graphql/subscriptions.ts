@@ -2,6 +2,90 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateConfiguration = /* GraphQL */ `
+  subscription OnCreateConfiguration(
+    $filter: ModelSubscriptionConfigurationFilterInput
+  ) {
+    onCreateConfiguration(filter: $filter) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
+export const onUpdateConfiguration = /* GraphQL */ `
+  subscription OnUpdateConfiguration(
+    $filter: ModelSubscriptionConfigurationFilterInput
+  ) {
+    onUpdateConfiguration(filter: $filter) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
+export const onDeleteConfiguration = /* GraphQL */ `
+  subscription OnDeleteConfiguration(
+    $filter: ModelSubscriptionConfigurationFilterInput
+  ) {
+    onDeleteConfiguration(filter: $filter) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
 export const onCreateGame = /* GraphQL */ `
   subscription OnCreateGame($filter: ModelSubscriptionGameFilterInput) {
     onCreateGame(filter: $filter) {

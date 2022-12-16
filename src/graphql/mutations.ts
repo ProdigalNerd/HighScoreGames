@@ -2,6 +2,93 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createConfiguration = /* GraphQL */ `
+  mutation CreateConfiguration(
+    $input: CreateConfigurationInput!
+    $condition: ModelConfigurationConditionInput
+  ) {
+    createConfiguration(input: $input, condition: $condition) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
+export const updateConfiguration = /* GraphQL */ `
+  mutation UpdateConfiguration(
+    $input: UpdateConfigurationInput!
+    $condition: ModelConfigurationConditionInput
+  ) {
+    updateConfiguration(input: $input, condition: $condition) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
+export const deleteConfiguration = /* GraphQL */ `
+  mutation DeleteConfiguration(
+    $input: DeleteConfigurationInput!
+    $condition: ModelConfigurationConditionInput
+  ) {
+    deleteConfiguration(input: $input, condition: $condition) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
 export const createGame = /* GraphQL */ `
   mutation CreateGame(
     $input: CreateGameInput!

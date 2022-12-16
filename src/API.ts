@@ -2,21 +2,21 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateGameInput = {
+export type CreateConfigurationInput = {
   id?: string | null,
-  created?: string | null,
-  completed?: string | null,
-  boardgameID: string,
+  name?: string | null,
+  value?: string | null,
   _version?: number | null,
+  configurationBoardGameId?: string | null,
 };
 
-export type ModelGameConditionInput = {
-  created?: ModelStringInput | null,
-  completed?: ModelStringInput | null,
-  boardgameID?: ModelIDInput | null,
-  and?: Array< ModelGameConditionInput | null > | null,
-  or?: Array< ModelGameConditionInput | null > | null,
-  not?: ModelGameConditionInput | null,
+export type ModelConfigurationConditionInput = {
+  name?: ModelStringInput | null,
+  value?: ModelStringInput | null,
+  and?: Array< ModelConfigurationConditionInput | null > | null,
+  or?: Array< ModelConfigurationConditionInput | null > | null,
+  not?: ModelConfigurationConditionInput | null,
+  configurationBoardGameId?: ModelIDInput | null,
 };
 
 export type ModelStringInput = {
@@ -75,6 +75,62 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type Configuration = {
+  __typename: "Configuration",
+  id: string,
+  name?: string | null,
+  value?: string | null,
+  BoardGame?: BoardGame | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+  configurationBoardGameId?: string | null,
+};
+
+export type BoardGame = {
+  __typename: "BoardGame",
+  id: string,
+  name: string,
+  minPlayers?: number | null,
+  maxPlayers?: number | null,
+  Scorings?: ModelScoringConnection | null,
+  Games?: ModelGameConnection | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type ModelScoringConnection = {
+  __typename: "ModelScoringConnection",
+  items:  Array<Scoring | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type Scoring = {
+  __typename: "Scoring",
+  id: string,
+  name?: string | null,
+  pointValue?: number | null,
+  boardgameID: string,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type ModelGameConnection = {
+  __typename: "ModelGameConnection",
+  items:  Array<Game | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
 export type Game = {
   __typename: "Game",
   id: string,
@@ -109,6 +165,36 @@ export type Player = {
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
+};
+
+export type UpdateConfigurationInput = {
+  id: string,
+  name?: string | null,
+  value?: string | null,
+  _version?: number | null,
+  configurationBoardGameId?: string | null,
+};
+
+export type DeleteConfigurationInput = {
+  id: string,
+  _version?: number | null,
+};
+
+export type CreateGameInput = {
+  id?: string | null,
+  created?: string | null,
+  completed?: string | null,
+  boardgameID: string,
+  _version?: number | null,
+};
+
+export type ModelGameConditionInput = {
+  created?: ModelStringInput | null,
+  completed?: ModelStringInput | null,
+  boardgameID?: ModelIDInput | null,
+  and?: Array< ModelGameConditionInput | null > | null,
+  or?: Array< ModelGameConditionInput | null > | null,
+  not?: ModelGameConditionInput | null,
 };
 
 export type UpdateGameInput = {
@@ -196,19 +282,6 @@ export type ModelScoringConditionInput = {
   not?: ModelScoringConditionInput | null,
 };
 
-export type Scoring = {
-  __typename: "Scoring",
-  id: string,
-  name?: string | null,
-  pointValue?: number | null,
-  boardgameID: string,
-  createdAt: string,
-  updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
-};
-
 export type UpdateScoringInput = {
   id: string,
   name?: string | null,
@@ -239,35 +312,6 @@ export type ModelBoardGameConditionInput = {
   not?: ModelBoardGameConditionInput | null,
 };
 
-export type BoardGame = {
-  __typename: "BoardGame",
-  id: string,
-  name: string,
-  minPlayers?: number | null,
-  maxPlayers?: number | null,
-  Scorings?: ModelScoringConnection | null,
-  Games?: ModelGameConnection | null,
-  createdAt: string,
-  updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
-};
-
-export type ModelScoringConnection = {
-  __typename: "ModelScoringConnection",
-  items:  Array<Scoring | null >,
-  nextToken?: string | null,
-  startedAt?: number | null,
-};
-
-export type ModelGameConnection = {
-  __typename: "ModelGameConnection",
-  items:  Array<Game | null >,
-  nextToken?: string | null,
-  startedAt?: number | null,
-};
-
 export type UpdateBoardGameInput = {
   id: string,
   name?: string | null,
@@ -279,6 +323,23 @@ export type UpdateBoardGameInput = {
 export type DeleteBoardGameInput = {
   id: string,
   _version?: number | null,
+};
+
+export type ModelConfigurationFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  value?: ModelStringInput | null,
+  and?: Array< ModelConfigurationFilterInput | null > | null,
+  or?: Array< ModelConfigurationFilterInput | null > | null,
+  not?: ModelConfigurationFilterInput | null,
+  configurationBoardGameId?: ModelIDInput | null,
+};
+
+export type ModelConfigurationConnection = {
+  __typename: "ModelConfigurationConnection",
+  items:  Array<Configuration | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type ModelGameFilterInput = {
@@ -330,13 +391,12 @@ export type ModelBoardGameConnection = {
   startedAt?: number | null,
 };
 
-export type ModelSubscriptionGameFilterInput = {
+export type ModelSubscriptionConfigurationFilterInput = {
   id?: ModelSubscriptionIDInput | null,
-  created?: ModelSubscriptionStringInput | null,
-  completed?: ModelSubscriptionStringInput | null,
-  boardgameID?: ModelSubscriptionIDInput | null,
-  and?: Array< ModelSubscriptionGameFilterInput | null > | null,
-  or?: Array< ModelSubscriptionGameFilterInput | null > | null,
+  name?: ModelSubscriptionStringInput | null,
+  value?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionConfigurationFilterInput | null > | null,
+  or?: Array< ModelSubscriptionConfigurationFilterInput | null > | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -367,6 +427,15 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null,
   in?: Array< string | null > | null,
   notIn?: Array< string | null > | null,
+};
+
+export type ModelSubscriptionGameFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  created?: ModelSubscriptionStringInput | null,
+  completed?: ModelSubscriptionStringInput | null,
+  boardgameID?: ModelSubscriptionIDInput | null,
+  and?: Array< ModelSubscriptionGameFilterInput | null > | null,
+  or?: Array< ModelSubscriptionGameFilterInput | null > | null,
 };
 
 export type ModelSubscriptionPlayerFilterInput = {
@@ -413,6 +482,102 @@ export type ModelSubscriptionBoardGameFilterInput = {
   maxPlayers?: ModelSubscriptionIntInput | null,
   and?: Array< ModelSubscriptionBoardGameFilterInput | null > | null,
   or?: Array< ModelSubscriptionBoardGameFilterInput | null > | null,
+};
+
+export type CreateConfigurationMutationVariables = {
+  input: CreateConfigurationInput,
+  condition?: ModelConfigurationConditionInput | null,
+};
+
+export type CreateConfigurationMutation = {
+  createConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
+};
+
+export type UpdateConfigurationMutationVariables = {
+  input: UpdateConfigurationInput,
+  condition?: ModelConfigurationConditionInput | null,
+};
+
+export type UpdateConfigurationMutation = {
+  updateConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
+};
+
+export type DeleteConfigurationMutationVariables = {
+  input: DeleteConfigurationInput,
+  condition?: ModelConfigurationConditionInput | null,
+};
+
+export type DeleteConfigurationMutation = {
+  deleteConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
 };
 
 export type CreateGameMutationVariables = {
@@ -703,6 +868,90 @@ export type DeleteBoardGameMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
+  } | null,
+};
+
+export type GetConfigurationQueryVariables = {
+  id: string,
+};
+
+export type GetConfigurationQuery = {
+  getConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
+};
+
+export type ListConfigurationsQueryVariables = {
+  filter?: ModelConfigurationFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListConfigurationsQuery = {
+  listConfigurations?:  {
+    __typename: "ModelConfigurationConnection",
+    items:  Array< {
+      __typename: "Configuration",
+      id: string,
+      name?: string | null,
+      value?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      configurationBoardGameId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncConfigurationsQueryVariables = {
+  filter?: ModelConfigurationFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncConfigurationsQuery = {
+  syncConfigurations?:  {
+    __typename: "ModelConfigurationConnection",
+    items:  Array< {
+      __typename: "Configuration",
+      id: string,
+      name?: string | null,
+      value?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      configurationBoardGameId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -1012,6 +1261,99 @@ export type SyncBoardGamesQuery = {
     } | null >,
     nextToken?: string | null,
     startedAt?: number | null,
+  } | null,
+};
+
+export type OnCreateConfigurationSubscriptionVariables = {
+  filter?: ModelSubscriptionConfigurationFilterInput | null,
+};
+
+export type OnCreateConfigurationSubscription = {
+  onCreateConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
+};
+
+export type OnUpdateConfigurationSubscriptionVariables = {
+  filter?: ModelSubscriptionConfigurationFilterInput | null,
+};
+
+export type OnUpdateConfigurationSubscription = {
+  onUpdateConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
+  } | null,
+};
+
+export type OnDeleteConfigurationSubscriptionVariables = {
+  filter?: ModelSubscriptionConfigurationFilterInput | null,
+};
+
+export type OnDeleteConfigurationSubscription = {
+  onDeleteConfiguration?:  {
+    __typename: "Configuration",
+    id: string,
+    name?: string | null,
+    value?: string | null,
+    BoardGame?:  {
+      __typename: "BoardGame",
+      id: string,
+      name: string,
+      minPlayers?: number | null,
+      maxPlayers?: number | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    configurationBoardGameId?: string | null,
   } | null,
 };
 

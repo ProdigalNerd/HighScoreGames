@@ -1,3 +1,10 @@
+type Configuration @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  value: String
+  BoardGame: BoardGame @hasOne
+}
+
 type Game @model @auth(rules: [{allow: public}]) {
   id: ID!
   created: AWSDateTime
@@ -29,4 +36,4 @@ type BoardGame @model @auth(rules: [{allow: public}]) {
   maxPlayers: Int
   Scorings: [Scoring] @hasMany(indexName: "byBoardGame", fields: ["id"])
   Games: [Game] @hasMany(indexName: "byBoardGame", fields: ["id"])
-}
+} 

@@ -2,6 +2,84 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getConfiguration = /* GraphQL */ `
+  query GetConfiguration($id: ID!) {
+    getConfiguration(id: $id) {
+      id
+      name
+      value
+      BoardGame {
+        id
+        name
+        minPlayers
+        maxPlayers
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      configurationBoardGameId
+    }
+  }
+`;
+export const listConfigurations = /* GraphQL */ `
+  query ListConfigurations(
+    $filter: ModelConfigurationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listConfigurations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        value
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        configurationBoardGameId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncConfigurations = /* GraphQL */ `
+  query SyncConfigurations(
+    $filter: ModelConfigurationFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncConfigurations(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        value
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        configurationBoardGameId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getGame = /* GraphQL */ `
   query GetGame($id: ID!) {
     getGame(id: $id) {
